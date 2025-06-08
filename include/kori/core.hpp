@@ -13,6 +13,15 @@ namespace kori {
         return reinterpret_cast<T>((reinterpret_cast<uint64_t>(value) + (align - 1)) & ~(align - 1));
     }
 
+    template<typename... Ts>
+    struct VariantOverloadSet : Ts...
+    {
+        using Ts::operator()...;
+    };
+
+    template<typename... Ts>
+    VariantOverloadSet(Ts...) -> VariantOverloadSet<Ts...>;
+
     template<typename T>
     struct DeferImpl
     {
