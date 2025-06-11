@@ -11,8 +11,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(kori INTERFACE)
 
-target_include_directories(kori INTERFACE ./include/)
+target_include_directories(kori INTERFACE Include/)
 
 if (KORI_BUILD_EXAMPLES)
-    add_subdirectory(examples)
+    add_subdirectory(Examples)
 endif()

@@ -5,7 +5,7 @@
 #include <utility>
 #include <concepts>
 
-namespace kori {
+namespace Kori {
 
     template<typename T>
     constexpr auto align_up2(T value, uint64_t align) noexcept -> T
@@ -42,5 +42,5 @@ namespace kori {
 #define KoriConcatImpl(x, y) x##y
 #define KoriConcat(x, y) KoriConcatImpl(x, y)
 
-#define kori_defer_with(...) ::kori::DeferImpl KoriConcat(kori_defer_obj_, __COUNTER__) = [__VA_ARGS__]()
-#define kori_defer kori_defer_with(&)
+#define KoriDeferWith(...) ::Kori::DeferImpl KoriConcat(kori_defer_obj_, __COUNTER__) = [__VA_ARGS__]()
+#define KoriDefer KoriDeferWith(&)

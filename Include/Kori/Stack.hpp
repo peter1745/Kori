@@ -2,9 +2,9 @@
 
 #include <memory>
 
-#include "core.hpp"
+#include "Core.hpp"
 
-namespace kori {
+namespace Kori {
 
     struct StackAllocator
     {
@@ -57,7 +57,7 @@ namespace kori {
 
 }
 
-#define KoriStackFrame() kori_defer_with(ptr = kori::stack_allocator().ptr) \
+#define KoriStackFrame() KoriDeferWith(ptr = Kori::stack_allocator().ptr) \
 {                                                                           \
-   kori::stack_allocator().ptr = ptr;                                       \
+   Kori::stack_allocator().ptr = ptr;                                       \
 }
